@@ -70,11 +70,10 @@ class Scraping {
         } catch (IOException e) {
             e.printStackTrace();
         } if(htm_in == null) System.out.println("Error htm_in is null !");
-
     }
 
     // Blank processing
-    private static String InputStream2String(InputStream in_st, String charset) throws IOException {
+    private static String InputStream2String(InputStream in_st, String charset) throws IOException {      
         BufferedReader buff = new BufferedReader(new InputStreamReader(in_st, charset));
         StringBuffer res = new StringBuffer();
         String line = "";

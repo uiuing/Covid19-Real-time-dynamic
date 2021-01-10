@@ -1,5 +1,4 @@
 package Data_mining;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;

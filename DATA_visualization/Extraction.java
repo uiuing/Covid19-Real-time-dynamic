@@ -1,6 +1,8 @@
 package DATA_visualization;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 /**
  * 
@@ -16,15 +18,15 @@ public class Extraction {
     public static String[] Chinadate;
     // v < MySQL 8.0
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/databases";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/covid";
     // v > MySQL 8.0
     // private static final String JDBC_DRIVER =
     // "com.mysql.cj.jdbc.Driver";
     // private static final String DB_URL =
-    // "jdbc:mysql://localhost:3306/databases?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    // "jdbc:mysql://localhost:3306/covid?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
     // NAME & PASSWORD
-    private static final String USER = "username";
-    private static final String PASS = "Password";
+    private static final String USER = "covid";
+    private static final String PASS = "nitR3aYP6N7bixY8";
     // CONNECTION & STATEMENT & ResultSet
     private static Connection conn = null;
     private static Statement stmt = null;
@@ -112,12 +114,17 @@ public class Extraction {
                 RAM_string = new String(insert.insert(5,"日"));
             }
             if(RAM_char.length == 3){ 
-                if(RAM_string.charAt(0) == '1'){
+                Calendar Cal = Calendar.getInstance();
+                String pd = String.valueOf(RAM_string.charAt(0)) + String.valueOf(RAM_string.charAt(1));
+                String RAM_strings = String.valueOf(RAM_string.charAt(2));
+                if(pd.equals(String.valueOf(Cal.get(Calendar.MONTH) + 1)) && RAM_strings.equals(String.valueOf(Cal.get(Calendar.DATE)))){
                     RAM_string = new String(insert.insert(2,"月"));
                     RAM_string = new String(insert.insert(4,"日")); 
                 }
-                RAM_string = new String(insert.insert(1,"月"));
-                RAM_string = new String(insert.insert(4,"日"));
+                if(!pd.equals(String.valueOf(Cal.get(Calendar.MONTH) + 1)) && !RAM_strings.equals(String.valueOf(Cal.get(Calendar.DATE)))){
+                    RAM_string = new String(insert.insert(1,"月"));
+                    RAM_string = new String(insert.insert(4,"日"));
+                }
             }
             Data_time[i] = RAM_string;
         }

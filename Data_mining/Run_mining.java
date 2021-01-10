@@ -1,5 +1,4 @@
 package Data_mining;
-
 /**
  * 
  * @param China-COVID-19数据挖掘模块调度
@@ -7,7 +6,6 @@ package Data_mining;
  * @param ©️uiuing.top   2020
  *
  */
-
 public class Run_mining {
     // MAIN
     public Run_mining() {
@@ -37,5 +35,3 @@ public class Run_mining {
     }
 
 }
-
-    
