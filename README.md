@@ -1,3 +1,4 @@
+# 已停止服务，仅2020参赛作品
 # Covid19-Real-time-dynamic
 
 > **Involved: java crawler, mysql storage, Javascripte visualization, etc. .**
